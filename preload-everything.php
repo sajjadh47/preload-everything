@@ -1,80 +1,97 @@
 <?php
 /**
- * Plugin Name: Preload Everything
- * Description: Fasten Your Website Loading Speed By Preloading Internal Pages Ahead Of The Time For Your Visitors.
- * Plugin URI:  https://wordpress.org/plugins/preload-everything/
- * Author: Sajjad Hossain Sagor
- * Author URI: https://profiles.wordpress.org/sajjad67/
- * Version: 1.0.2
- * Text Domain: preload-everything
- * Domain Path: /languages
- * Requires at least: 5.6
- * Requires PHP: 7.0
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @package           Preload_Everything
+ * @author            Sajjad Hossain Sagor <sagorh672@gmail.com>
+ *
+ * Plugin Name:       Preload Everything
+ * Plugin URI:        https://wordpress.org/plugins/preload-everything/
+ * Description:       Fasten Your Website Loading Speed By Preloading Internal Pages Ahead Of The Time For Your Visitors.
+ * Version:           2.0.0
+ * Requires at least: 6.5
+ * Requires PHP:      8.0
+ * Author:            Sajjad Hossain Sagor
+ * Author URI:        https://sajjadhsagor.com/
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       preload-everything
+ * Domain Path:       /languages
  */
- 
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) exit;
 
-// ---------------------------------------------------------
-// Define Plugin Folders Path
-// ---------------------------------------------------------
-if ( ! defined( 'PRE_EV_PLUGIN_PATH' ) ) define( 'PRE_EV_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-
-if ( ! defined( 'PRE_EV_PLUGIN_URL' ) ) define( 'PRE_EV_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-
-// ---------------------------------------------------------
-// Load Language Translations
-// ---------------------------------------------------------
-add_action( 'plugins_loaded', 'pre_ev_load_plugin_textdomain' );
-
-if ( ! function_exists( 'pre_ev_load_plugin_textdomain' ) )
-{
-	function pre_ev_load_plugin_textdomain()
-	{
-		load_plugin_textdomain( 'preload-everything', '', basename( dirname( __FILE__ ) ) . '/languages/' );
-	}
+// If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
 }
 
-// ---------------------------------------------------------
-// Load Admin Settings
-// ---------------------------------------------------------
-require_once PRE_EV_PLUGIN_PATH . 'includes/admin_settings.php';
+/**
+ * Currently plugin version.
+ */
+define( 'PRELOAD_EVERYTHING_PLUGIN_VERSION', '2.0.0' );
 
-// ---------------------------------------------------------
-// Add Go To Settings Page Link in Plugin List Table
-// ---------------------------------------------------------
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'pre_ev_add_goto_settings_link' );
+/**
+ * Define Plugin Folders Path
+ */
+define( 'PRELOAD_EVERYTHING_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
-if ( ! function_exists( 'pre_ev_add_goto_settings_link' ) )
-{
-	function pre_ev_add_goto_settings_link( $links )
-	{   
-		$goto_settings_link = array( '<a href="' . admin_url( 'options-general.php?page=preload-everything.php' ) . '">' . __( "Settings", 'preload-everything' ) . '</a>' );
-		
-		return array_merge( $links, $goto_settings_link );
-	}
+define( 'PRELOAD_EVERYTHING_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+define( 'PRELOAD_EVERYTHING_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-preload-everything-activator.php
+ *
+ * @since    2.0.0
+ */
+function on_activate_preload_everything() {
+	require_once PRELOAD_EVERYTHING_PLUGIN_PATH . 'includes/class-preload-everything-activator.php';
+
+	Preload_Everything_Activator::on_activate();
 }
 
-// ---------------------------------------------------------
-// Enqueue Plugin Scripts & Stylesheets in Front
-// ---------------------------------------------------------
-add_action( 'wp_enqueue_scripts', 'pre_ev_enqueue_scripts' );
+register_activation_hook( __FILE__, 'on_activate_preload_everything' );
 
-if ( ! function_exists( 'pre_ev_enqueue_scripts' ) )
-{
-	function pre_ev_enqueue_scripts()
-	{
-		$plugin_enabled 	= PRE_EV_ADMIN_SETTINGS::get_option( 'enable_plugin', 'pre_ev_basic_settings' );
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-preload-everything-deactivator.php
+ *
+ * @since    2.0.0
+ */
+function on_deactivate_preload_everything() {
+	require_once PRELOAD_EVERYTHING_PLUGIN_PATH . 'includes/class-preload-everything-deactivator.php';
 
-		if ( $plugin_enabled == 'on' )
-		{
-			$pre_ev_script 	= [];
-			
-			$pre_ev_script['Allowed_Hosts'] = PRE_EV_ADMIN_SETTINGS::get_option( 'preloading_url_host', 'pre_ev_basic_settings' );
-
-			wp_enqueue_script( 'pre_ev_script', plugins_url( '/assets/js/script.js', __FILE__ ), array( 'jquery' ) );
-
-			wp_localize_script( 'pre_ev_script', 'PRE_EV', $pre_ev_script );
-		}
-	}
+	Preload_Everything_Deactivator::on_deactivate();
 }
+
+register_deactivation_hook( __FILE__, 'on_deactivate_preload_everything' );
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ *
+ * @since    2.0.0
+ */
+require PRELOAD_EVERYTHING_PLUGIN_PATH . 'includes/class-preload-everything.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    2.0.0
+ */
+function run_preload_everything() {
+	$plugin = new Preload_Everything();
+
+	$plugin->run();
+}
+
+run_preload_everything();
