@@ -73,11 +73,11 @@ class Preload_Everything {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Preload_Everything_Loader.  Orchestrates the hooks of the plugin.
-	 * - Preload_Everything_i18n.    Defines internationalization functionality.
-	 * - Sajjad_Dev_Settings_API.    Provides an interface for interacting with the WordPress Options API.
-	 * - Preload_Everything_Admin.   Defines all hooks for the admin area.
-	 * - Preload_Everything_Public.  Defines all hooks for the public side of the site.
+	 * - Preload_Everything_Loader. Orchestrates the hooks of the plugin.
+	 * - Preload_Everything_i18n.   Defines internationalization functionality.
+	 * - Sajjad_Dev_Settings_API.   Provides an interface for interacting with the WordPress Options API.
+	 * - Preload_Everything_Admin.  Defines all hooks for the admin area.
+	 * - Preload_Everything_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -214,6 +214,7 @@ class Preload_Everything {
 	 *
 	 * @since     2.0.0
 	 * @access    public
+	 * @static
 	 * @param     string $option        The name of the settings field.
 	 * @param     string $section       The name of the section this field belongs to. This corresponds
 	 *                                  to the option name used in `register_setting()`.
