@@ -75,7 +75,7 @@ class Preload_Everything {
 	 *
 	 * - Preload_Everything_Loader. Orchestrates the hooks of the plugin.
 	 * - Preload_Everything_i18n.   Defines internationalization functionality.
-	 * - Sajjad_Dev_Settings_API.   Provides an interface for interacting with the WordPress Options API.
+	 * - Sajjad_Dev_Settings_API.   Provides an interface for interacting with the WordPress Settings API.
 	 * - Preload_Everything_Admin.  Defines all hooks for the admin area.
 	 * - Preload_Everything_Public. Defines all hooks for the public side of the site.
 	 *
@@ -99,7 +99,7 @@ class Preload_Everything {
 		require_once PRELOAD_EVERYTHING_PLUGIN_PATH . 'includes/class-preload-everything-i18n.php';
 
 		/**
-		 * The class responsible for defining an interface for interacting with the WordPress Options API.
+		 * The class responsible for defining an interface for interacting with the WordPress Settings API.
 		 */
 		require_once PRELOAD_EVERYTHING_PLUGIN_PATH . 'includes/class-sajjad-dev-settings-api.php';
 
