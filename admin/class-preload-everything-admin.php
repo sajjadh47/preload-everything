@@ -84,7 +84,7 @@ class Preload_Everything_Admin {
 			'manage_options',
 			'preload-everything',
 			array( $this, 'menu_page' ),
-			'dashicons-admin-tools'
+			'dashicons-update-alt'
 		);
 	}
 

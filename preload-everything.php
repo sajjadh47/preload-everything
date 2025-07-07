@@ -14,7 +14,7 @@
  * Plugin URI:        https://wordpress.org/plugins/preload-everything/
  * Description:       Fasten Your Website Loading Speed By Preloading Internal Pages Ahead Of The Time For Your Visitors.
  * Version:           2.0.0
- * Requires at least: 6.5
+ * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            Sajjad Hossain Sagor
  * Author URI:        https://sajjadhsagor.com/
@@ -72,8 +72,7 @@ function on_deactivate_preload_everything() {
 register_deactivation_hook( __FILE__, 'on_deactivate_preload_everything' );
 
 /**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
+ * The core plugin class that is used to define admin-specific and public-facing hooks.
  *
  * @since    2.0.0
  */
