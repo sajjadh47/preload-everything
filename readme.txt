@@ -4,7 +4,7 @@ Contributors: sajjad67
 Author: Sajjad Hossain Sagor
 Tested up to: 6.8
 Requires at least: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 Requires PHP: 8.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,6 +48,8 @@ Just after installing the plugin, go to settings page and set the plugin setting
 1. settings
 
 == Changelog ==
+= 2.0.1 =
+- Fixed issue: typo giving fatal error
 = 2.0.0 =
 - Checked for latest wp version 6.8
 = 1.0.2 =

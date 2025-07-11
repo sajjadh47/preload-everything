@@ -13,7 +13,7 @@
  * Plugin Name:       Preload Everything
  * Plugin URI:        https://wordpress.org/plugins/preload-everything/
  * Description:       Fasten Your Website Loading Speed By Preloading Internal Pages Ahead Of The Time For Your Visitors.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Requires at least: 5.6
  * Requires PHP:      8.0
  * Author:            Sajjad Hossain Sagor
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'PRELOAD_EVERYTHING_PLUGIN_VERSION', '2.0.0' );
+define( 'PRELOAD_EVERYTHING_PLUGIN_VERSION', '2.0.1' );
 
 /**
  * Define Plugin Folders Path

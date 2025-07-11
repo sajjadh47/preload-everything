@@ -54,6 +54,9 @@ Just after installing the plugin, go to settings page and set the plugin setting
 
 ## Changelog
 
+### 2.0.1
+* Fixed issue: typo giving fatal error
+
 ### 2.0.0
 - Checked for latest wp version 6.8
 
