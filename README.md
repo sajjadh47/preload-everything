@@ -1,6 +1,6 @@
 # Preload Everything
 
-[![Plugin Banner](https://ps.w.org/preload-everything/assets/banner-772x250.png)](https://wordpress.org/plugins/preload-everything/)
+[![Plugin Banner](https://ps.w.org/preload-everything/assets/banner-1544x500.png)](https://wordpress.org/plugins/preload-everything/)
 
 **Tags:** cache, preload, preloading, fast, performance, speed, speed-optimization \
 **Tested up to:** 6.9 \
