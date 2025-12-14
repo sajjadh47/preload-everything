@@ -3,7 +3,7 @@
 [![Plugin Banner](https://ps.w.org/preload-everything/assets/banner-772x250.png)](https://wordpress.org/plugins/preload-everything/)
 
 **Tags:** cache, preload, preloading, fast, performance, speed, speed-optimization \
-**Tested up to:** 6.8 \
+**Tested up to:** 6.9 \
 **Requires PHP:** 8.0
 
 Fasten Your Website Loading Speed By Preloading Internal Pages Ahead Of The Time For Your Visitors.
@@ -53,6 +53,9 @@ Just after installing the plugin, go to settings page and set the plugin setting
 ![settings](https://ps.w.org/preload-everything/assets/screenshot-1.png)
 
 ## Changelog
+
+### 2.0.2
+- Checked for latest wp version 6.9
 
 ### 2.0.1
 * Fixed issue: typo giving fatal error
